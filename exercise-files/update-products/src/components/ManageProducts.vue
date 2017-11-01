@@ -3,9 +3,11 @@
     <save-product-form
       :product="productInForm"
       v-on:submit="onFormSave"
+      v-on:cancel="onFormCancel"
     ></save-product-form>
     <product-list
-      :products="products">
+      :products="products"
+      v-on:edit="onEditClicked">
     </product-list>
   </section>
 </template>
@@ -14,6 +16,7 @@
 import uuid from 'uuid'
 import ProductList from './ProductList'
 import SaveProductForm from './SaveProductForm'
+import _ from 'lodash'
 
 const initialData = () => {
   return {
@@ -21,7 +24,8 @@ const initialData = () => {
       id: null,
       name: '',
       description: '',
-      price: null
+      price: null,
+      isEditing: false
     },
     products: [
       {
@@ -55,15 +59,31 @@ export default {
   data: initialData,
   methods: {
     onFormSave (product) {
-      // Generate an id using the third-party lib 'uuid'
-      product.id = uuid.v4()
-      // add it to the product list
-      this.products.push(product)
+      const index = this.products.findIndex((p) => p.id === product.id)
+
+      // update product if it exists or create if it doesn't
+      if (index !== -1) {
+        this.products.splice(index, 1, product)
+      } else if (!_.find(this.products, ['name', product.name])) {
+        // Generate an id using the third-party lib 'uuid'
+        product.id = uuid.v4()
+        this.products.push(product)
+      }
+
       // reset the form
       this.resetProductInForm()
     },
     resetProductInForm () {
       this.productInForm = initialData().productInForm
+    },
+    onEditClicked (product) {
+      this.productInForm = { ...product }
+      this.productInForm.isEditing = true
+    },
+    onFormCancel (product) {
+      const initialProduct = _.find(this.products, ['name', product.name])
+      initialProduct.isEditing = true
+      this.productInForm = initialProduct
     }
   }
 }

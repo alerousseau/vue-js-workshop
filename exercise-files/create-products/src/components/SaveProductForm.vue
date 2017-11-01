@@ -25,9 +25,6 @@
         name: {
           type: String
         },
-        price: {
-          type: Number
-        }
       }
     },
     methods: {

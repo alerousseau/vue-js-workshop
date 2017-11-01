@@ -12,7 +12,8 @@
       <label for="price">Price</label>
       <input type="number" v-model="product.price" class="form-control" id="price" placeholder="Enter Price" number>
     </div>
-    <button type="submit" v-on:click.prevent="onSubmit" class="btn btn-primary">Save product</button>
+    <button type="submit" v-on:click.prevent="onSubmit" class="btn btn-primary">{{product.isEditing ? 'Edit product': 'Save product'}}</button>
+    <button v-if="product.isEditing" type="cancel" v-on:click.prevent="onCancel" class="btn btn-secondary">Cancel</button>
   </form>
 </template>
 
@@ -22,6 +23,9 @@ export default {
   methods: {
     onSubmit () {
       this.$emit('submit', this.product)
+    },
+    onCancel () {
+      this.$emit('cancel', this.product)
     }
   }
 }
