@@ -27,6 +27,8 @@
   "dependencies": {
     "gitbook-plugin-ga": "^1.0.1",
     "gitbook-plugin-github": "^2.0.0",
-    "gitbook-plugin-prism": "^2.2.1"
+    "gitbook-plugin-prism": "^2.2.1",
+    "globale": "^1.0.0",
+    "vue-router": "^3.0.1"
   }
 }
