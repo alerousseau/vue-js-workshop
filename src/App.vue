@@ -1,7 +1,11 @@
 <template>
   <div>
     <header class="app-header">
-      <app-nav></app-nav>
+      <menu-nav
+        v-on:click="toggleMenu">
+
+      </menu-nav>
+      <sidebar></sidebar>
     </header>
     <main class="container">
       <router-view></router-view>
@@ -10,15 +14,34 @@
 </template>
 
 <script>
-import AppNav from './components/AppNav'
+import MenuNav from './components/MenuNav'
+import Sidebar from './components/Sidebar'
+
+const initialActive = () => {
+  return {
+    isActive: false
+  }
+}
 
 export default {
   components: {
-    AppNav
+    MenuNav,
+    Sidebar
   },
+  data: initialActive,
 
   created () {
     this.$store.dispatch('fetchProducts')
+  },
+
+  methods: {
+    toggleMenu () {
+      // eslint-disable-next-line no-console
+      console.log('menu toggled')
+      return {
+        isActive: !initialActive.isActive
+      }
+    }
   }
 }
 </script>

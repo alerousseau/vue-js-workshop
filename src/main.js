@@ -18,6 +18,7 @@ import ManageProducts from './components/ManageProducts'
 
 // import some global styles
 import './styles/style.scss'
+import 'font-awesome/css/font-awesome.css'
 
 // set the API root so we can use relative url's in our actions.
 Vue.http.options.root = 'http://localhost:3000'

@@ -1,20 +1,49 @@
 <template>
-  <nav class="navbar navbar-expand-sm navbar-light navbar-jw">
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#appnav"
-      aria-controls="appnav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <a class="navbar-brand" href="#">
-      <img src="../assets/jay.svg" alt="Jayway logo" /> Jaystore
-    </a>
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle">
+        <i class="fa fa-times"></i>
+      </a>
+      <div class="collapse navbar-collapse" id="appnav">
+        <div class="nav navbar-nav">
+          <router-link
+            to="home"
+            class="nav-item nav-link"
+            active-class="active"
+            exact
+          >
+            Home
+          </router-link>
+          <router-link
+            to="manage-products"
+            class="nav-item nav-link"
+            active-class="active"
+            exact
+          >
+            Manage Products
+          </router-link>
+        </div>
+      </div>
+      <li class="sidebar-brand">
+        <a class="js-scroll-trigger" href="#top">Start Bootstrap</a>
+      </li>
+      <li>
+        <a class="js-scroll-trigger" href="#top">Home</a>
+      </li>
+      <li>
+        <a class="js-scroll-trigger" href="#about">About</a>
+      </li>
+      <li>
+        <a class="js-scroll-trigger" href="#services">Services</a>
+      </li>
+      <li>
+        <a class="js-scroll-trigger" href="#portfolio">Portfolio</a>
+      </li>
+      <li>
+        <a class="js-scroll-trigger" href="#contact" onclick=$( "#menu-close").click();>Contact</a>
+      </li>
+    </ul>
+  </nav>
 
     <div class="collapse navbar-collapse" id="appnav">
       <div class="nav navbar-nav">
@@ -35,7 +64,7 @@
           Manage Products
         </router-link>
       </div>
-      <div class="nav navbar-nav pull-sm-right">
+      <!--<div class="nav navbar-nav pull-sm-right">
         <div class="nav-item dropdown dropdown-cart">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
             <span v-if="totalItems" class="badge badge-pill badge-primary">{{totalItems}}</span> Shopping cart
@@ -44,9 +73,8 @@
             <shopping-cart></shopping-cart>
           </div>
         </div>
-      </div>
+      </div>-->
     </div>
-  </nav>
 </template>
 
 <script>
