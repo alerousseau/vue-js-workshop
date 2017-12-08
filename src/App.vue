@@ -1,17 +1,21 @@
 <template>
   <div>
-    <main class="container">
-      <menu-nav></menu-nav>
+    <main>
+      <router-view></router-view>
     </main>
   </div>
 </template>
 
 <script>
 import MenuNav from './components/MenuNav'
+import HeaderIntro from './components/HeaderIntro'
+import AppThemes from './components/AppThemes'
 
 export default {
   components: {
-    MenuNav
+    MenuNav,
+    AppThemes,
+    HeaderIntro
   },
 
   created () {

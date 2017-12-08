@@ -1,15 +1,12 @@
 <template>
-  <section class="row">
+  <div>
+    <menu-nav></menu-nav>
+    <p>COUCOU</p>
+  </div>
+<!--  <section class="row">
     <div class="col-sm-6 col-md-4" v-for="product in products">
       <section class="card card-product">
-        <figure class="card-img-top card-product-image">
-          <img v-if="product.imageUrl" v-bind:src="product.imageUrl" alt="Product image">
-          <img v-else src="../assets/product_placeholder.svg" alt="Product image">
-        </figure>
         <div class="card-content">
-          <aside class="card-overlay">
-            <button class="btn btn-outline-primary add-to-cart" @click.stop.prevent="addToCart(product)" type="button" name="button">Add to cart</button>
-          </aside>
           <div class="card-body">
             <header class="product-info">
               <h1 class="title">{{product.name}}</h1>
@@ -20,20 +17,23 @@
         </div>
       </section>
     </div>
-  </section>
+  </section>-->
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import MenuNav from './MenuNav'
 
 export default {
   computed: mapGetters({
     products: 'getProducts'
   }),
   methods: mapActions([
-    'fetchProducts',
-    'addToCart'
-  ])
+    'fetchProducts'
+  ]),
+  components: {
+    MenuNav
+  }
 }
 </script>
 

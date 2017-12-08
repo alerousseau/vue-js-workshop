@@ -11,10 +11,6 @@
     </thead>
     <tbody>
       <tr v-for="product in products" track-by="id" v-on:click.prevent="onEdit(product)">
-        <td>
-          <img v-if="product.imageUrl" v-bind:src="product.imageUrl" alt="Product image" class="product-image">
-          <img v-else src="../assets/product_placeholder.svg" alt="Product image" class="product-image">
-        </td>
         <td>{{product.name}}</td>
         <td class="product-desc-col">{{product.description}}</td>
         <td>{{product.price}}:-</td>

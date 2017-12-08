@@ -2,43 +2,27 @@
   <div id="sidebar">
     <nav id="sidebar-wrapper" v-bind:class="{ active: isActive }">
       <!--<ul class="sidebar-nav">-->
-        <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle" v-on:click.prevent="onMenuClose">
+        <a id="menu-close" href="#" class="btn btn-close btn-lg pull-right toggle" v-on:click.prevent="onMenuClose">
           <i class="fa fa-times"></i>
         </a>
-        <div class="sidebar-nav"id="appnav">
+        <div class="nav navbar-nav sidebar-nav" id="appnav">
           <router-link
             to="home"
-            class="nav-item nav-link sidebar-brand js-scroll-trigger"
-            active-class="active"
             exact
           >
-            Home
+            <li class="sidebar-brand">
+              <a class="js-scroll-trigger" href="'#top'">Home</a>
+            </li>
           </router-link>
           <router-link
-            to="manage-products"
-            class="nav-item nav-link js-scroll-trigger"
-            active-class="active"
+            to="product-catalog"
             exact
           >
-            Manage Products
+            <li>
+              <a class="js-scroll-trigger" href="#top">Products Catalog</a>
+            </li>
           </router-link>
         </div>
-        <!--<li class="sidebar-brand">
-          <a class="js-scroll-trigger" href="#top">Start Bootstrap</a>
-        </li>
-        <li>
-          <a class="js-scroll-trigger" href="#top">Home</a>
-        </li>
-        <li>
-          <a class="js-scroll-trigger" href="#about">About</a>
-        </li>
-        <li>
-          <a class="js-scroll-trigger" href="#services">Services</a>
-        </li>
-        <li>
-          <a class="js-scroll-trigger" href="#portfolio">Portfolio</a>
-        </li>
-      </ul>-->
     </nav>
   </div>
 </template>
