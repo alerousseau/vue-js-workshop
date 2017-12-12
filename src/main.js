@@ -22,9 +22,6 @@ import ProductCatalog from './components/ProductCatalog'
 import './styles/style.scss'
 import 'font-awesome/css/font-awesome.css'
 
-// set the API root so we can use relative url's in our actions.
-Vue.http.options.root = 'http://localhost:3000'
-
 const routes = [
   { path: '/home', alias: '/', component: IntroView },
   { path: '/product-catalog', component: ProductCatalog }

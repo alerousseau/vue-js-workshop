@@ -3,21 +3,6 @@
     <menu-nav></menu-nav>
     <p>COUCOU</p>
   </div>
-<!--  <section class="row">
-    <div class="col-sm-6 col-md-4" v-for="product in products">
-      <section class="card card-product">
-        <div class="card-content">
-          <div class="card-body">
-            <header class="product-info">
-              <h1 class="title">{{product.name}}</h1>
-              <span class="price">{{product.price}}:-</span>
-            </header>
-            <p v-if="product.description" class="description">{{product.description}}</p>
-          </div>
-        </div>
-      </section>
-    </div>
-  </section>-->
 </template>
 
 <script>
