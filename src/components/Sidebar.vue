@@ -2,7 +2,7 @@
   <div id="sidebar">
     <nav id="sidebar-wrapper" v-bind:class="{ active: isActive }">
       <!--<ul class="sidebar-nav">-->
-        <a id="menu-close" href="#" class="btn btn-close btn-lg pull-right toggle" v-on:click.prevent="onMenuClose">
+        <a id="menu-close" href="#" class="btn btn-close btn-lg pull-left toggle" v-on:click.prevent="onMenuClose">
           <i class="fa fa-times"></i>
         </a>
         <div class="nav navbar-nav sidebar-nav" id="appnav">
@@ -28,14 +28,7 @@
 </template>
 
 <script>
-  const initialData = () => {
-    return {
-      isActive: false
-    }
-  }
-
   export default {
-    data: initialData,
     methods: {
       onMenuClose () {
         this.isActive = !this.isActive

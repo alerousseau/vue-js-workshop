@@ -1,59 +1,21 @@
 import Vue from 'vue'
+import {
+  FETCH_PRODUCTS
+} from './mutation-types'
 
 const actions = {
   /**
    * @param context
    * @param page
    */
-  getProducts (context, page) {
-    return new Promise((resolve, reject) => {
-      Vue.http
-        .get('/api/products/get', {
-          params: {
-            page
-          }
+  fetchProducts ({ commit }) {
+    return Vue.http
+        .get('Product/')
+        .then((response) => {
+          console.log('coucou yolo', response)
+          commit(FETCH_PRODUCTS, response.body)
         })
-        .then(response => {
-          context.commit('SET_PRODUCTS', response.body)
-          resolve()
-        })
-        .catch(error => reject(error))
-    })
-  },
-
-  /**
-   * @param context
-   * @param page
-   */
-  getShopProducts (context, page) {
-    return new Promise((resolve, reject) => {
-      Vue.http
-        .get('/api/user/products/get', {
-          params: {
-            page
-          }
-        })
-        .then(response => {
-          context.commit('SET_PRODUCTS', response.body)
-          resolve()
-        })
-        .catch(error => reject(error))
-    })
-  },
-
-  /**
-   * @param context
-   */
-  getProductsByUser (context) {
-    return new Promise((resolve, reject) => {
-      Vue.http
-        .get('/api/user/products/getProductsByUser')
-        .then(response => {
-          context.commit('SET_PRODUCTS', response.body)
-          resolve()
-        })
-        .catch(error => reject(error))
-    })
+        .catch((err) => console.log('mais pk ca march po', err))
   }
 }
 

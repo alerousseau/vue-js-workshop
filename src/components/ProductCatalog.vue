@@ -1,11 +1,14 @@
 <template>
-  <div>
+  <section>
     <menu-nav></menu-nav>
-    <p>COUCOU</p>
-  </div>
+    <div>COUCOU</div>
+    <ul v-for="product in products" track-by="id">
+      <li>{{product.name}}</li>
+    </ul>
+  </section>
 </template>
-
 <script>
+
 import { mapGetters, mapActions } from 'vuex'
 import MenuNav from './MenuNav'
 

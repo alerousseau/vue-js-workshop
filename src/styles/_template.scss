@@ -79,7 +79,7 @@ hr.small {
 #sidebar-wrapper {
   position: fixed;
   z-index: 1000;
-  right: 0;
+  left: 0;
   overflow-y: auto;
   width: 250px;
   height: 100%;
@@ -88,7 +88,7 @@ hr.small {
   -ms-transition: all .4s ease 0s;
   -o-transition: all .4s ease 0s;
   transition: all .4s ease 0s;
-  transform: translateX(250px);
+  transform: translateX(-250px);
   background: #222;
 }
 
@@ -141,11 +141,11 @@ hr.small {
   position: fixed;
   z-index: 1;
   top: 0;
-  right: 0;
+  left: 5px;
 }
 
 #sidebar-wrapper.active {
-  right: 250px;
+  left: 250px;
   width: 250px;
   -webkit-transition: all .4s ease 0s;
   -moz-transition: all .4s ease 0s;

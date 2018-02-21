@@ -1,9 +1,10 @@
+import {
+  FETCH_PRODUCTS
+} from './mutation-types'
+
 const mutations = {
-  /**
-   * @param state
-   * @param products
-   */
-  SET_PRODUCTS (state, products) {
+  [FETCH_PRODUCTS] (state, products) {
+    // assign the products that we got from our FETCH_PRODUCTS event to state.all
     state.products = products
   }
 }

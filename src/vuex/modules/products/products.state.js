@@ -1,5 +1,5 @@
-const state = {
-  products: {}
+const initialState = {
+  products: ['yolo']
 }
 
-export default state
+export default initialState
