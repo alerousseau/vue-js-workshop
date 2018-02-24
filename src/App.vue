@@ -1,5 +1,8 @@
 <template>
   <div>
+    <header class="app-header">
+      <menu-nav></menu-nav>
+    </header>
     <main>
       <router-view></router-view>
     </main>

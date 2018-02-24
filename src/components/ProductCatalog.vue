@@ -1,27 +1,76 @@
 <template>
-  <section>
-    <menu-nav></menu-nav>
-    <div>COUCOU</div>
-    <ul v-for="product in products" track-by="id">
-      <li>{{product.name}}</li>
-    </ul>
-  </section>
+  <table class="table table-hover product-table">
+    <thead>
+    <tr>
+      <th class="product-name-col">Name</th>
+      <th class="product-desc-col">Description</th>
+      <th class="product-delete-col"><button class="btn-crud btn-edit" v-on:click.prevent.stop="openEditionForm()">Add</button></th>
+    </tr>
+    </thead>
+    <tbody>
+    <save-product-form
+      :is-hidden="hideForm"
+      :product="productInForm"
+      v-on:submit="onFormSave"
+      v-on:cancel="resetProductInForm"
+    ></save-product-form>
+    <tr v-for="product in products" track-by="id" > <!--v-on:click.prevent="onEdit(product)"-->
+      <td>{{product.name}}</td>
+      <td class="product-desc-col">{{product.description}}</td>
+      <td><button class="btn-crud btn-del" v-on:click.prevent.stop="onRemove(product.id)">Delete</button></td>
+    </tr>
+    <tr v-if="!products.length">
+      <td colspan="5" class="p-y-3 text-xs-center">
+        <strong>You should add some products!</strong>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </template>
 <script>
 
+import SaveProductForm from './SaveProductForm'
 import { mapGetters, mapActions } from 'vuex'
-import MenuNav from './MenuNav'
+
+const initialData = () => {
+  return {
+    productInForm: {
+      id: null,
+      name: '',
+      description: ''
+    },
+    hideForm: true
+  }
+}
 
 export default {
+  components: {
+    SaveProductForm
+  },
+  data: initialData,
   computed: mapGetters({
     products: 'getProducts'
   }),
-  methods: mapActions([
-    'fetchProducts'
-  ]),
-  components: {
-    MenuNav
+  methods: {
+    onRemove (productId) {
+      this.deleteProduct(productId)
+    },
+    onFormSave (product) {
+      this.saveProduct({ product }).then(() => this.resetProductInForm())
+    },
+    resetProductInForm () {
+      this.productInForm = initialData().productInForm
+    },
+    openEditionForm () {
+      this.hideForm = !this.hideForm
+    },
+    ...mapActions([
+      'fetchProducts',
+      'saveProduct',
+      'deleteProduct'
+    ])
   }
+
 }
 </script>
 

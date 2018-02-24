@@ -1,5 +1,5 @@
 const initialState = {
-  products: ['yolo']
+  products: []
 }
 
 export default initialState

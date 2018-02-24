@@ -77,6 +77,7 @@ hr.small {
 /* Side Menu */
 
 #sidebar-wrapper {
+  top:0;
   position: fixed;
   z-index: 1000;
   left: 0;
@@ -175,6 +176,17 @@ hr.small {
   background-size: cover;
 }
 
+.app-header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  box-shadow: 0 0 1px rgba(0,0,0,0.25);
+  transition: background-color 0.3s ease-in-out;
+  background-color: #fff;
+  height: 65px;
+  padding: 10px 60px;
+  z-index: 100;
+}
 
 /* About */
 
@@ -269,4 +281,94 @@ footer {
   bottom: 5px;
   display: none;
   padding: 15px 20px;
+}
+
+/* Table */
+.product-table {
+  table-layout: fixed;
+  margin-top: 65px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+
+  .product-row {
+    cursor: pointer;
+  }
+
+  th,
+  td {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    vertical-align: middle;
+  }
+
+  .product-image-col {
+    text-align: center;
+    width: 72px;
+  }
+
+  .product-name-col {
+    min-width: 200px;
+  }
+
+  .product-delete-col {
+    width: 84px;
+    text-align: right;
+  }
+}
+/*
+@include media-breakpoint-down(sm) {
+  .product-desc-col {
+    display: none;
+  }
+}*/
+
+/* Buttons */
+.btn-crud {
+  -webkit-box-shadow: #B4B5B5 1px 1px 1px;
+  -moz-box-shadow: #B4B5B5 1px 1px 1px ;
+  box-shadow: #B4B5B5 1px 1px 1px  ; -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  font-size:12px;
+  font-family:tahoma, verdana, arial, sans-serif;
+  padding: 10px 10px 10px 10px;
+  text-decoration:none;
+  display:inline-block;
+  text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
+  font-weight:bold;
+  color: #F5F5F5;
+}
+
+.btn-del{
+  border:1px solid #df0909;
+  background-color: #f62b2b; background-image: -webkit-gradient(linear, left top, left bottom, from(#f62b2b), to(#d20202));
+  background-image: -webkit-linear-gradient(top, #f62b2b, #d20202);
+  background-image: -moz-linear-gradient(top, #f62b2b, #d20202);
+  background-image: -ms-linear-gradient(top, #f62b2b, #d20202);
+  background-image: -o-linear-gradient(top, #f62b2b, #d20202);
+  background-image: linear-gradient(to bottom, #f62b2b, #d20202);
+  filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f62b2b, endColorstr=#d20202);
+}
+
+.btn-del:hover{
+  border:1px solid #b30808;
+  background-color: #e40a0a;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#e40a0a), to(#9f0202));
+  background-image: -webkit-linear-gradient(top, #e40a0a, #9f0202);
+  background-image: -moz-linear-gradient(top, #e40a0a, #9f0202);
+  background-image: -ms-linear-gradient(top, #e40a0a, #9f0202);
+  background-image: -o-linear-gradient(top, #e40a0a, #9f0202);
+  background-image: linear-gradient(to bottom, #e40a0a, #9f0202);
+  filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#e40a0a, endColorstr=#9f0202);
+}
+
+
+.btn-edit {
+  background-color: #0070c9;
+  background: -webkit-linear-gradient(#42a1ec,#0070c9);
+  background: linear-gradient(#42a1ec,#0070c9);
+  border: .1rem solid #07c;
+  color: #FFF;
 }

@@ -1,5 +1,5 @@
 <template>
-  <div id="test">
+  <div id="test" class="app-header">
     <button id="menu-toggle" class="btn btn-dark btn-lg toggle" v-on:click.prevent="onClickMenu">
       <i class="fa fa-bars"></i>
     </button>
