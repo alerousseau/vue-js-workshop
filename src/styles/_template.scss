@@ -220,6 +220,28 @@ hr.small {
   background-size: cover;
 }
 
+/* Form style */
+.management-product-form {
+  position: absolute;
+  margin-top: 0;
+  right: 3%;
+  background: #ffffff;
+  width: 480px;
+  font-size: 12px;
+  visibility: visible;
+  opacity: 1;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  border: 1px solid #dbdbdb;
+  min-width: 200px;
+}
+
+.form-content-group {
+  max-width: 80%;
+  margin-left: 5%;
+}
 
 /* Portfolio */
 
@@ -303,18 +325,13 @@ footer {
     vertical-align: middle;
   }
 
-  .product-image-col {
-    text-align: center;
-    width: 72px;
-  }
-
   .product-name-col {
     min-width: 200px;
   }
 
   .product-delete-col {
     width: 84px;
-    text-align: right;
+    text-align: left;
   }
 }
 /*
@@ -371,4 +388,44 @@ footer {
   background: linear-gradient(#42a1ec,#0070c9);
   border: .1rem solid #07c;
   color: #FFF;
+}
+
+/* ICONS */
+
+.gradient-icon-add {
+  display: inline-block;
+  background: -webkit-gradient(linear, left top, left bottom, from(#00ffcc), to(#3484ef));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-transition: 0.6s ease-out;
+  -moz-transition:  0.6s ease-out;
+  transition:  0.6s ease-out;
+}
+
+.close-icon {
+  -webkit-transform: rotateZ(45deg);
+  -moz-transform: rotateZ(45deg);
+  transform: rotateZ(45deg);
+}
+
+.gradient-icon-del {
+  background: -webkit-gradient(linear, left top, left bottom, from(#ff0056), to(#ef5b40));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: initial;
+}
+
+.gradient-icon-check {
+  background: -webkit-gradient(linear, left top, left bottom, from(#59ff6b), to(#00bf10));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.icons-right {
+  margin-left: 90%;
+}
+
+.large-icons {
+  font-size: 22pt;
+  vertical-align: middle;
 }

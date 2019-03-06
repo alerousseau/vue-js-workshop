@@ -23,6 +23,7 @@ import ProductCatalog from './components/ProductCatalog'
 // import some global styles
 import './styles/style.scss'
 import 'font-awesome/css/font-awesome.css'
+import 'simple-line-icons/css/simple-line-icons.css'
 
 const routes = [
   { path: '/home', alias: '/', component: IntroView },

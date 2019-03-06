@@ -1,31 +1,35 @@
 <template>
-  <table class="table table-hover product-table">
-    <thead>
-    <tr>
-      <th class="product-name-col">Name</th>
-      <th class="product-desc-col">Description</th>
-      <th class="product-delete-col"><button class="btn-crud btn-edit" v-on:click.prevent.stop="openEditionForm()">Add</button></th>
-    </tr>
-    </thead>
-    <tbody>
-    <save-product-form
-      :is-hidden="hideForm"
-      :product="productInForm"
-      v-on:submit="onFormSave"
-      v-on:cancel="resetProductInForm"
-    ></save-product-form>
-    <tr v-for="product in products" track-by="id" > <!--v-on:click.prevent="onEdit(product)"-->
-      <td>{{product.name}}</td>
-      <td class="product-desc-col">{{product.description}}</td>
-      <td><button class="btn-crud btn-del" v-on:click.prevent.stop="onRemove(product.id)">Delete</button></td>
-    </tr>
-    <tr v-if="!products.length">
-      <td colspan="5" class="p-y-3 text-xs-center">
-        <strong>You should add some products!</strong>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+  <div>
+    <table class="table table-hover product-table">
+      <thead>
+      <tr>
+        <th class="product-name-col">Name</th>
+        <th class="product-desc-col">Description</th>
+        <th class="product-delete-col"><i class="gradient-icon-add large-icons icon-plus" v-on:click.prevent.stop="openEditionForm()"
+               v-bind:class="{ 'close-icon': !hideForm }"></i>
+          <save-product-form
+            :is-hidden="hideForm"
+            :product="productInForm"
+            v-on:submit="onFormSave"
+            v-on:cancel="resetProductInForm"
+          ></save-product-form>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr v-for="product in products" track-by="id" > <!--v-on:click.prevent="onEdit(product)"-->
+        <td>{{product.name}}</td>
+        <td class="product-desc-col">{{product.description}}</td>
+        <td><i class="large-icons icon-trash gradient-icon-del" v-on:click.prevent.stop="onRemove(product.id)"></i></td>
+      </tr>
+      <tr v-if="!products.length">
+        <td colspan="5" class="p-y-3 text-xs-center">
+          <strong>You should add some products!</strong>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </template>
 <script>
 

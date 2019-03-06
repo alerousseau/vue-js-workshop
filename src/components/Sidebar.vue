@@ -11,7 +11,7 @@
             exact
           >
             <li class="sidebar-brand">
-              <a class="js-scroll-trigger" href="'#top'">Home</a>
+              <a class="js-scroll-trigger">Home</a>
             </li>
           </router-link>
           <router-link
@@ -19,7 +19,7 @@
             exact
           >
             <li>
-              <a class="js-scroll-trigger" href="#top">Products Catalog</a>
+              <a class="js-scroll-trigger">Products Catalog</a>
             </li>
           </router-link>
         </div>
